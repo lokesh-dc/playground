@@ -1,11 +1,19 @@
 import HospitalContainer from "@/components/Hospitals/HospitalsContainer";
 import { getAllHospitals } from "@/Utils/fetching";
+import Head from "next/head";
 
 export default function hospital({ data }) {
 	return (
-		<div>
-			<HospitalContainer hospitals={data} />\
-		</div>
+		<>
+			<Head>
+				<title>
+					List of Hospitals in India - Top NABH Accredited Hospitals
+				</title>
+			</Head>
+			<div>
+				<HospitalContainer hospitals={data} />\
+			</div>
+		</>
 	);
 }
 

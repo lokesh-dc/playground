@@ -8,6 +8,7 @@ export default function specificDoctorDetails({ data }) {
 			<Head>
 				<title>{data?.results[0]?.DoctorName}</title>
 			</Head>
+
 			<div className={styles.specificDoctor}>
 				<div>
 					<h1>{data?.results[0]?.DoctorName}</h1>
@@ -35,7 +36,10 @@ export default function specificDoctorDetails({ data }) {
 						<button className={styles.whatsAppButton}>WhatsApp Expert</button>
 					</div>
 				</div>
-				<img src="https://www.hexahealth.com/images/doctor.png" />
+				<img
+					src="https://www.hexahealth.com/images/doctor.png"
+					alt={data?.results[0]?.DoctorName}
+				/>
 			</div>
 		</>
 	);

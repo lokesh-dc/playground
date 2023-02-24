@@ -11,13 +11,8 @@ module.exports = {
 	async redirects() {
 		return [
 			{
-				source: "/old",
-				destination: "/new",
-				permanent: false,
-			},
-			{
-				source: "/doctors/dr-ashwani-chopra-medical-gastroenterology-10",
-				destination: "/doctors/dr-alok-chopra-cardiology-9",
+				source: "/hospitals/null",
+				destination: "/hospitals/avantika-hospital-sector-2-delhi",
 				permanent: true,
 			},
 		];

@@ -1,6 +1,7 @@
 import { getAllDoctors } from "@/Utils/fetching";
 import DoctorsContainer from "@/components/Doctors/DoctorsContainer";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 export default function DoctorDetails() {
 	const [data, setData] = useState([]);
@@ -22,12 +23,19 @@ export default function DoctorDetails() {
 		setPage((page) => page + 1);
 	}
 	return (
-		<div>
-			<DoctorsContainer
-				doctors={data}
-				newLimit={newLimit}
-				isLoading={isLoading}
-			/>
-		</div>
+		<>
+			<Head>
+				<title>
+					List of Doctors in India - Book Doctors Appointment Online
+				</title>
+			</Head>
+			<div>
+				<DoctorsContainer
+					doctors={data}
+					newLimit={newLimit}
+					isLoading={isLoading}
+				/>
+			</div>
+		</>
 	);
 }

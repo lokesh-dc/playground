@@ -3,8 +3,6 @@ const connection = require("../../../../config");
 export default async function handler(req, res) {
 	if (req.method === "POST") {
 		const { slug } = req.body;
-		console.log(slug, req.body);
-
 		connection.query(
 			`call new_dev_db.GetHospitalIdFromSlug("${slug}");`,
 			function (err, results, fields) {

@@ -1,6 +1,6 @@
 export default function CityWise({city}) {
     return (
-        <div>{ city }</div>
+        <div>City : { city }</div>
     )
 }
 

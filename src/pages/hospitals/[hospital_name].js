@@ -32,7 +32,10 @@ export default function specificHospitalDetails({ data }) {
 						<button className={styles.whatsAppButton}>WhatsApp Expert</button>
 					</div>
 				</div>
-				<img src="https://cdn.hexahealth.com/Image/7945613e-3d6c-4f10-88f6-cbbbf8248aab.jpg" />
+				<img
+					src="https://cdn.hexahealth.com/Image/7945613e-3d6c-4f10-88f6-cbbbf8248aab.jpg"
+					alt={`{data?.results[0]?.HospitalName}`}
+				/>
 			</div>
 		</>
 	);
@@ -70,8 +73,6 @@ export async function getStaticProps(context) {
 	)
 		.then((res) => res.json())
 		.then((res) => res);
-
-	console.log(response);
 	if (response.notFound === true) {
 		return {
 			notFound: true,
