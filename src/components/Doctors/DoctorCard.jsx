@@ -30,7 +30,7 @@ export default function DoctorCard({ details, isLast, newLimit  }) {
                     <Link
                         
                         href={{
-                            pathname: `/delhi/doctors/${details.Slug_1}`
+                            pathname: `/${details.CityName.toLowerCase()}/doctors/${details.Slug_1}`
                         }}
                         className={styles.more}
                     > 

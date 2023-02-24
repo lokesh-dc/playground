@@ -1,14 +1,15 @@
 const connection = require("../../../../config");
 
 export default async function handler(req, res) {
-	if (req.method === "GET") {        
+	if (req.method === "GET") {
 		connection.query(
-			`SELECT * FROM new_dev_db.v1_doctormaster docm LEFT JOIN slugmaster_doctor slugdoc ON docm.RouteId = slugdoc.RouteId LIMIT ${
-				(req.query.limit || 10)
-			} OFFSET ${(req.query.page || 0) * (req.query.limit || 1)}`,
+			`SELECT * FROM new_dev_db.v1_doctormaster docm LEFT JOIN slugmaster_doctor slugdoc ON docm.RouteId = slugdoc.RouteId LEFT JOIN citymaster cm ON cm.CityId = docm.CityId
+ LIMIT ${req.query.limit || 10} OFFSET ${
+				(req.query.page || 0) * (req.query.limit || 1)
+			}`,
 			function (err, results, fields) {
 				if (!err) return res.send({ results });
-				res.send({notFound : true, error : err})
+				res.send({ notFound: true, error: err });
 			}
 		);
 	} else {
