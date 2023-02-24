@@ -3,14 +3,12 @@ export async function getAllDoctors(page, size) {
 		"environment variable => ",
 		`${process.env.NEXT_PUBLIC_API_BASELINK}`
 	);
-	const res = await fetch(
-		`${process.env.NEXT_PUBLIC_API_BASELINK}/api/doctors/all?page=${page}&limit=${size}`
-	)
+	const res = await fetch(`/api/doctors/all?page=${page}&limit=${size}`)
 		.then((res) => res.json())
 		.then((res) => res)
 		.catch((e) => console.log(e));
 
-	console.log("Doctors Results : ", response);
+	console.log("Doctors Results : ", res);
 
 	return res;
 }
@@ -20,9 +18,7 @@ export async function getAllHospitals() {
 		"environment variable => ",
 		`${process.env.NEXT_PUBLIC_API_BASELINK}`
 	);
-	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_BASELINK}/api/hospitals/all`
-	)
+	const response = await fetch(`/api/hospitals/all`)
 		.then((res) => res.json())
 		.then((res) => res);
 
