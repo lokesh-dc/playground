@@ -4,7 +4,9 @@ import { getAllHospitals } from "@/Utils/fetching";
 export default function hospital({ data }) {
 	return (
 		<div>
-			<HospitalContainer hospitals={data} />
+			{/* <HospitalContainer hospitals={data} /> */}
+
+			Hospitalssss
 		</div>
 	);
 }
