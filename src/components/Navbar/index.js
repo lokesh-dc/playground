@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 import MobileNavbar from "./MobileNavbar";
 
 const menu = [
-  { title: "Home" },
+  { title: "Doctors" },
   {
     title: "Condition",
     submenu: [

@@ -40,18 +40,16 @@ export default function specificDoctorDetails({ data }) {
 }
 
 export async function getStaticPaths() {
-	const data = await getAllDoctors(0, 9950);
-	const paths = data?.results.map((doc) => {
-		return {
-			params: {
-				id: `${doc.Slug_1}`,
-			},
-		};
-	});
-
-	console.log(paths);
+	// const data = await getAllDoctors(0, 9950);
+	// const paths = data?.results.map((doc) => {
+	// 	return {
+	// 		params: {
+	// 			id: `${doc.Slug_1}`,
+	// 		},
+	// 	};
+	// });
 	return {
-		paths,
+		paths: [{ params: { id: "dr-alok-chopra" } }],
 		fallback: true,
 	};
 }
@@ -71,7 +69,6 @@ export async function getStaticProps(req) {
 		.then((res) => res)
 		.catch(() => null);
 
-	
 	if (data.notFound)
 		return {
 			notFound: true,
