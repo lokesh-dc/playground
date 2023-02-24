@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 						function (err, results, fields) {
 							if (!err)
 								return res.status(200).send({ notFound: false, results });
-							return results;
+							return res.status(404).send({ notFound: true });
 						}
 					);
 				} else {
