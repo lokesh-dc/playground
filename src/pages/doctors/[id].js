@@ -6,15 +6,17 @@ export default function specificDoctorDetails({ data }) {
 	return (
 		<>
 			<Head>
-				<title>{data?.DoctorName}</title>
+				<title>{data?.results[0]?.DoctorName}</title>
 			</Head>
 			<div className={styles.specificDoctor}>
 				<div>
-					<h1>{data?.DoctorName}</h1>
-					<h3>{data?.Specialization}</h3>
-					<p>Experience : {data?.experience_years} years</p>
+					<h1>{data?.results[0]?.DoctorName}</h1>
+					<h3>{data?.results[0]?.Specialization}</h3>
+					<p>Experience : {data?.results[0]?.experience_years} years</p>
 
-					<div dangerouslySetInnerHTML={{ __html: data?.IntroText }} />
+					<div
+						dangerouslySetInnerHTML={{ __html: data?.results[0]?.IntroText }}
+					/>
 					<div className={styles.userFeedbacks}>
 						<div>
 							<img src="/icons/love.png" />
@@ -75,11 +77,7 @@ export async function getStaticProps(req) {
 		};
 	return {
 		props: {
-			data: data.results[0],
+			data: data,
 		},
 	};
 }
-
-// export default function specificDoctorDetails() {
-// 	return <div>Specific Doctor Details</div>;
-// }

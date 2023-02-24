@@ -5,13 +5,15 @@ export default function specificHospitalDetails({ data }) {
 	return (
 		<>
 			<Head>
-				<title>{data?.HospitalName}</title>
+				<title>{data?.results[0]?.HospitalName}</title>
 			</Head>
 			<div className={styles.specificDoctor}>
 				<div>
-					<h1>{data?.HospitalName}</h1>
-					<h3>{data?.Specialization}</h3>
-					<div dangerouslySetInnerHTML={{ __html: data?.IntroText }} />
+					<h1>{data?.results[0]?.HospitalName}</h1>
+					<h3>{data?.results[0]?.Specialization}</h3>
+					<div
+						dangerouslySetInnerHTML={{ __html: data?.results[0]?.IntroText }}
+					/>
 					<div className={styles.userFeedbacks}>
 						<div>
 							<img src="/icons/love.png" />
@@ -75,7 +77,7 @@ export async function getStaticProps(context) {
 
 	return {
 		props: {
-			data: response.results[0],
+			data: response,
 		},
 	};
 }
