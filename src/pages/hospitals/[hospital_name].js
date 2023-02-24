@@ -58,7 +58,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
 	const { hospital_name } = context.params;
 
-	console.log(process.env.NEXT_PUBLIC_API_BASELINK);
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_BASELINK}/api/hospitals/details`,
 		{
@@ -72,7 +71,7 @@ export async function getStaticProps(context) {
 		.then((res) => res.json())
 		.then((res) => res);
 
-	console.log(response)
+	console.log(response);
 	if (response.notFound === true) {
 		return {
 			notFound: true,
@@ -85,7 +84,3 @@ export async function getStaticProps(context) {
 		},
 	};
 }
-
-// export default function specificHospitalDetails() {
-// 	return <div>Specific Hospital Details</div>;
-// }
