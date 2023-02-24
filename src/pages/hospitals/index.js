@@ -4,9 +4,7 @@ import { getAllHospitals } from "@/Utils/fetching";
 export default function hospital({ data }) {
 	return (
 		<div>
-			{/* <HospitalContainer hospitals={data} /> */}
-
-			Hospitalssss
+			<HospitalContainer hospitals={data} />\
 		</div>
 	);
 }
@@ -20,8 +18,6 @@ export async function getStaticProps() {
 		},
 	};
 }
-
-
 
 // export default function allHospitals() {
 // 	return <div>Hospitals Cards</div>;
