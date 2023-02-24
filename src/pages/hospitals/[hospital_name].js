@@ -56,6 +56,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+	const { hospital_name } = context.params;
 	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_BASELINK}/api/hospitals/details`,
 		{
@@ -63,7 +64,7 @@ export async function getStaticProps(context) {
 			headers: {
 				"content-type": "application/json",
 			},
-			body: JSON.stringify({ slug: context.params.hospital_name }),
+			body: JSON.stringify({ slug: hospital_name }),
 		}
 	)
 		.then((res) => res.json())
