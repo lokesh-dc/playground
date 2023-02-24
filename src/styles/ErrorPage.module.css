@@ -1,0 +1,33 @@
+.errorDiv{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+    height: 53vh;
+    background-image: url("/wave.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.errorDiv > h1{
+    font-weight:900;
+    color: rgb(35, 35, 35);
+}
+.errorDiv> p{
+    width: 75%;
+    margin: 0 auto;
+    color: grey;
+}
+
+.backHomeButton{
+    padding: 0.5rem 2rem;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.226);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}

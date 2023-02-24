@@ -1,0 +1,51 @@
+.card{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 14px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+    padding: 10px 0 0 0;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+.card *{
+    margin: 0;
+    padding: 0;
+}
+
+.card>img{
+    width: auto;
+}
+
+.more{
+    color: rgba(0, 89, 255, 0.76);
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    height: 100%;
+
+}
+
+.content button{
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 10px 10px;
+    border: 2px solid rgba(0, 0, 0, 0.182);
+    width: 100%;
+    color:rgba(0, 0, 0, 0.782);
+}
+
+.content button:hover{
+    background-color: black;
+    color: white;
+
+}
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

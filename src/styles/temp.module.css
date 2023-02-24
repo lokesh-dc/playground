@@ -1,0 +1,67 @@
+.btnStyle{
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color: currentColor;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+}
+
+.parent{
+    position: relative;
+}
+
+.subMenuStyles{
+    display: none;
+    top: 100%;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    width: max-content;
+}
+
+.subMenuPositioningStyles{
+    left: 100%;
+    top: 0;
+}
+
+.parent>li{
+    display: flex;
+    color: red;
+}
+
+.show{
+    display: flex;
+}
+
+.hide{
+    display: none;
+}
+.subMenuStyles li{
+    padding: 10px 30px;
+    padding-left: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.208);
+}
+.subMenuStyles li:hover{
+    background-color: rgba(0, 0, 0, 0.134);
+    cursor: pointer;
+}
+
+.arrow {
+    border: 0.5px solid rgba(0, 0, 0, 0.802);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}

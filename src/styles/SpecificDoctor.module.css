@@ -1,0 +1,99 @@
+.specificDoctor{
+    padding: 100px;
+    display: flex;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    font-size: 1rem;
+}
+
+.specificDoctor>div>div:nth-last-child(4){
+    text-align: justify;
+}
+.specificDoctor h1{
+    text-transform: capitalize;
+}
+.userFeedbacks{
+    display: flex;
+    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+}
+.userFeedbacks div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.userFeedbacks div img{
+    width: 20px;
+}
+.enquiry{
+    background-color: #e9f5ff;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.specificDoctor>img{
+    border: 1px solid rgba(89, 86, 86, 0.31);
+    border-radius: 50%;
+}   
+.specificDoctor > div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    line-height: 1.5rem;
+}
+
+.specificDoctor>div>div:last-child{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.specificDoctor>div>div:nth-last-child(2){
+    color: rgba(30, 30, 30, 0.831);
+}
+.specificDoctor button{
+    background-color: transparent;
+    padding: 0.7rem 3rem;
+    border-radius: 10px;
+}
+
+.book{
+    border-color: rgb(41, 160, 245);
+    color: rgb(41, 160, 245);;
+}
+
+.book:hover{
+    background-color: rgb(41, 160, 245);
+    color: white;
+}
+.whatsAppButton{
+    border-color: #53a451;
+    color: #53a451;
+}
+.whatsAppButton:hover{
+    background-color: #53a451;
+    color: white;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+    .specificDoctor{
+        padding: 20px;
+        flex-direction: column-reverse;
+    }
+    .specificDoctor>div>div:last-child{
+        flex-direction: column;
+    }
+    .userFeedbacks{
+            justify-content: center;
+    }
+    .specificDoctor>img{
+        width: 200px;
+        display: block;
+        margin: auto;
+    }
+    .specificDoctor{
+        text-align: center;
+    }
+}
