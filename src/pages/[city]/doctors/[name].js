@@ -1,5 +1,3 @@
-
-
 import Heading from "@/components/Heading";
 import { getAllDoctors } from "@/Utils/fetching";
 import Head from "next/head";
@@ -54,7 +52,7 @@ export async function getStaticPaths() {
 	const paths = data?.results.map((doc) => {
 		return {
 			params: {
-				city: `${doc.CityName === null ? "city" : doc.CityName.toLowerCase()}`,
+				city: `${doc.CityName == null ? "city" : doc.CityName}`,
 				name: `${doc.Slug_1}`,
 			},
 		};
