@@ -28,9 +28,8 @@ export default function DoctorCard({ details, isLast, newLimit  }) {
                     <h4>{details?.Title} {details?.DoctorName}</h4>
                     <p>{details?.Specialization?.substr(0, 20) || "Expert"}</p>
                     <Link
-                        
                         href={{
-                            pathname: `/${details.CityName.toLowerCase()}/doctors/${details.Slug_1}`
+                            pathname: `/${details.CityName === null ? "city" : details.CityName.toLowerCase()}/doctors/${details.Slug_1}`
                         }}
                         className={styles.more}
                     > 

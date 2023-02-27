@@ -1,51 +1,6 @@
-// import { useRouter } from "next/router";
 
-// const states = ["Madhya Pradesh", "Maharashtra", "Arunachal Pradesh", "Goa"];
 
-// const types = ["gynaecologist", "Orthology", "Cardiologist", "Dermatologist"];
-
-// export default function CityWise({ city, name }) {
-// 	const router = useRouter();
-
-// 	function handleChange(e) {
-// 		e.preventDefault();
-// 		const { name, value } = e.target;
-// 		name == "state"
-// 			? router.push(
-// 					`/${value.toLowerCase().split(" ").join("-")}/doctors/${name}`
-// 			  )
-// 			: router.push(
-// 					`/${city}/doctors/${value.toLowerCase().split(" ").join("-")}`
-// 			  );
-// 	}
-// 	return (
-// 		<div>
-// 			<select onChange={handleChange} name="state">
-// 				{states.map((state) => (
-// 					<option key={state}>{state}</option>
-// 				))}
-// 			</select>
-// 			<select onChange={handleChange} name="type">
-// 				{types.map((type) => (
-// 					<option key={type}>{type}</option>
-// 				))}
-// 			</select>
-// 			<h1>{city}</h1>
-// 			<h3>{name}</h3>
-// 		</div>
-// 	);
-// }
-
-// export async function getServerSideProps(context) {
-// 	const { name, city } = context.query;
-// 	return {
-// 		props: {
-// 			city,
-// 			name,
-// 		},
-// 	};
-// }
-
+import Heading from "@/components/Heading";
 import { getAllDoctors } from "@/Utils/fetching";
 import Head from "next/head";
 import styles from "../../../styles/SpecificDoctor.module.css";
@@ -53,9 +8,10 @@ import styles from "../../../styles/SpecificDoctor.module.css";
 export default function specificDoctorDetails({ data }) {
 	return (
 		<>
-			<Head>
-				<title>{data?.results[0]?.DoctorName}</title>
-			</Head>
+			<Heading
+				title={data?.results[0]?.DoctorName}
+				metaContent={data?.results[0]?.IntroText}
+			/>
 
 			<div className={styles.specificDoctor}>
 				<div>
@@ -68,11 +24,11 @@ export default function specificDoctorDetails({ data }) {
 					/>
 					<div className={styles.userFeedbacks}>
 						<div>
-							<img src="/icons/love.png" />
+							<img src="/icons/love.png" alt="Likes" />
 							97%
 						</div>
 						<div>
-							<img src="/icons/review.png" />
+							<img src="/icons/review.png" alt="Comments" />
 							55 Reviewers
 						</div>
 					</div>
@@ -98,11 +54,12 @@ export async function getStaticPaths() {
 	const paths = data?.results.map((doc) => {
 		return {
 			params: {
-				city: `${doc.CityName.toLowerCase()}`,
+				city: `${doc.CityName === null ? "city" : doc.CityName.toLowerCase()}`,
 				name: `${doc.Slug_1}`,
 			},
 		};
 	});
+	console.log(paths);
 	return {
 		paths,
 		fallback: false,

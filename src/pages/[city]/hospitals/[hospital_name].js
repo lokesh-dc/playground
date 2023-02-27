@@ -1,12 +1,14 @@
+import Heading from "@/components/Heading";
 import { getAllHospitals } from "@/Utils/fetching";
 import Head from "next/head";
-import styles from "../../styles/SpecificDoctor.module.css";
+import styles from "../../../styles/SpecificDoctor.module.css";
 export default function specificHospitalDetails({ data }) {
 	return (
 		<>
-			<Head>
-				<title>{data?.results[0]?.HospitalName}</title>
-			</Head>
+			<Heading
+				title={data?.results[0]?.HospitalName}
+				metaContent={data?.results[0]?.IntroText}
+			/>
 			<div className={styles.specificDoctor}>
 				<div>
 					<h1>{data?.results[0]?.HospitalName}</h1>
@@ -16,11 +18,11 @@ export default function specificHospitalDetails({ data }) {
 					/>
 					<div className={styles.userFeedbacks}>
 						<div>
-							<img src="/icons/love.png" />
+							<img src="/icons/love.png" alt="Likes" />
 							97%
 						</div>
 						<div>
-							<img src="/icons/review.png" />
+							<img src="/icons/review.png" alt="Comments" />
 							55 Reviewers
 						</div>
 					</div>
@@ -47,6 +49,9 @@ export async function getStaticPaths() {
 	const paths = data?.results.map((hosp) => {
 		return {
 			params: {
+				city: `${
+					hosp.CityName === null ? "city" : hosp.CityName.toLowerCase()
+				}`,
 				hospital_name: `${hosp.Slug_1}`,
 			},
 		};

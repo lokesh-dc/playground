@@ -2,6 +2,7 @@ import { getAllDoctors } from "@/Utils/fetching";
 import DoctorsContainer from "@/components/Doctors/DoctorsContainer";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import Heading from "@/components/Heading";
 
 export default function DoctorDetails() {
 	const [data, setData] = useState([]);
@@ -24,11 +25,12 @@ export default function DoctorDetails() {
 	}
 	return (
 		<>
-			<Head>
-				<title>
-					List of Doctors in India - Book Doctors Appointment Online
-				</title>
-			</Head>
+			<Heading
+				title={"List of Doctors in India - Book Doctors Appointment Online"}
+				metaContent={
+					"List of Doctors in India - Book Doctors Appointment Online"
+				}
+			/>
 			<div>
 				<DoctorsContainer
 					doctors={data}

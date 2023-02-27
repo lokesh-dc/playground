@@ -11,7 +11,7 @@ export default function HospitalCard({ hospitalDetails }) {
                     <p>{hospitalDetails?.Area || hospitalDetails?.AddressLine2 || hospitalDetails?.AddressLine1}</p>
                     <Link
                         href={{
-                            pathname: `/hospitals/${hospitalDetails.Slug_1}`,
+                            pathname: `${ hospitalDetails.CityName===null ? "city" : hospitalDetails.CityName.toLowerCase() }/hospitals/${hospitalDetails.Slug_1}`,
                         }}
                         className={styles.more}
                     > 

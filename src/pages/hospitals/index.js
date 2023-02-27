@@ -1,3 +1,4 @@
+import Heading from "@/components/Heading";
 import HospitalContainer from "@/components/Hospitals/HospitalsContainer";
 import { getAllHospitals } from "@/Utils/fetching";
 import Head from "next/head";
@@ -5,11 +6,12 @@ import Head from "next/head";
 export default function hospital({ data }) {
 	return (
 		<>
-			<Head>
-				<title>
-					List of Hospitals in India - Top NABH Accredited Hospitals
-				</title>
-			</Head>
+			<Heading
+				title={"List of Hospitals in India - Top NABH Accredited Hospitals"}
+				metaContent={
+					"List of Hospitals in India - Top NABH Accredited Hospitals"
+				}
+			/>
 			<div>
 				<HospitalContainer hospitals={data} />\
 			</div>
