@@ -52,12 +52,11 @@ export async function getStaticPaths() {
 	const paths = data?.results.map((doc) => {
 		return {
 			params: {
-				city: `${doc.CityName == null ? "city" : doc.CityName}`,
+				city: `${doc.CityName}`,
 				name: `${doc.Slug_1}`,
 			},
 		};
 	});
-	console.log(paths);
 	return {
 		paths,
 		fallback: false,

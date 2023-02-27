@@ -47,14 +47,9 @@ export async function getStaticPaths() {
 	const data = await getAllHospitals();
 
 	const paths = data?.results.map((hosp) => {
-		// console.log(hosp);
-		// console.log(
-		// 	hosp.CityName == null ? "city" : "Delhi".toLowerCase(),
-		// 	hosp.CityName
-		// );
 		return {
 			params: {
-				city: `${hosp.CityName == null ? "city" : hosp.CityName}`,
+				city: `${hosp.CityName}`,
 				hospital_name: `${hosp.Slug_1}`,
 			},
 		};
