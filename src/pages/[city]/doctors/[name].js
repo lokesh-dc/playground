@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 	const paths = data?.results.map((doc) => {
 		return {
 			params: {
-				city: `${doc.CityName}`,
+				city: `delhi`,
 				name: `${doc.Slug_1}`,
 			},
 		};
