@@ -11,7 +11,7 @@ export default function DoctorDetails() {
 	async function fetchDoctorsDetails(page) {
 		setLoading(true);
 		const res = await getAllDoctors(page, 49);
-		setData((prev) => [...prev, ...res.results]);
+		setData((prev) => [...prev, ...res]);
 		setLoading(false);
 	}
 

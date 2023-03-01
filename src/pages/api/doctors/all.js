@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 				(req.query.page || 0) * (req.query.limit || 1)
 			}`,
 			function (err, results, fields) {
-				if (!err) return res.send({ results });
+				if (!err) return res.send(results);
 				res.send({ notFound: true, error: err });
 			}
 		);

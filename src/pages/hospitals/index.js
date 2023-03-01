@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			data: response.results,
+			data: response,
 		},
 	};
 }

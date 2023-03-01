@@ -5,15 +5,15 @@ export default function specificHospitalDetails({ data }) {
 	return (
 		<>
 			<Heading
-				title={data?.results[0]?.HospitalName}
-				metaContent={data?.results[0]?.IntroText}
+				title={data?.HospitalName}
+				metaContent={data?.IntroText}
 			/>
 			<div className={styles.specificDoctor}>
 				<div>
-					<h1>{data?.results[0]?.HospitalName}</h1>
-					<h3>{data?.results[0]?.Specialization}</h3>
+					<h1>{data?.HospitalName}</h1>
+					<h3>{data?.Specialization}</h3>
 					<div
-						dangerouslySetInnerHTML={{ __html: data?.results[0]?.IntroText }}
+						dangerouslySetInnerHTML={{ __html: data?.IntroText }}
 					/>
 					<div className={styles.userFeedbacks}>
 						<div>
@@ -35,7 +35,7 @@ export default function specificHospitalDetails({ data }) {
 				</div>
 				<img
 					src="https://cdn.hexahealth.com/Image/7945613e-3d6c-4f10-88f6-cbbbf8248aab.jpg"
-					alt={`{data?.results[0]?.HospitalName}`}
+					alt={`{data?.HospitalName}`}
 				/>
 			</div>
 		</>
@@ -45,7 +45,7 @@ export default function specificHospitalDetails({ data }) {
 export async function getStaticPaths() {
 	const data = await getAllHospitals();
 
-	const paths = data?.results.map((hosp) => {
+	const paths = data?.map((hosp) => {
 		return {
 			params: {
 				city: `delhi`,

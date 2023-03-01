@@ -16,7 +16,9 @@ export default async function handler(req, res) {
 						`SELECT * FROM new_dev_db.v1_hospitalmaster where HospitalId=${results[0][0].Id};`,
 						function (err, results, fields) {
 							if (!err)
-								return res.status(200).send({ notFound: false, results });
+								return res
+									.status(200)
+									.send( results[0] );
 							return res.status(404).send({ notFound: true });
 						}
 					);

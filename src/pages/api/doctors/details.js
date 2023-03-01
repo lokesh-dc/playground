@@ -16,10 +16,7 @@ export default async function handler(req, res) {
 					connection.query(
 						`SELECT * FROM v1_doctormaster where DoctorId=${results[0][0].DoctorId};`,
 						function (err, results, fields) {
-							if (!err)
-								return res
-									.status(200)
-									.send({ notFound: false, results: results });
+							if (!err) return res.status(200).send(results[0]);
 							return res.send({ notFound: true, error: err, type: "Query" });
 						}
 					);

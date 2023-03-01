@@ -6,20 +6,15 @@ import styles from "../../../styles/SpecificDoctor.module.css";
 export default function specificDoctorDetails({ data }) {
 	return (
 		<>
-			<Heading
-				title={data?.results[0]?.DoctorName}
-				metaContent={data?.results[0]?.IntroText}
-			/>
+			<Heading title={data?.DoctorName} metaContent={data?.IntroText} />
 
 			<div className={styles.specificDoctor}>
 				<div>
-					<h1>{data?.results[0]?.DoctorName}</h1>
-					<h3>{data?.results[0]?.Specialization}</h3>
-					<p>Experience : {data?.results[0]?.experience_years} years</p>
+					<h1>{data?.DoctorName}</h1>
+					<h3>{data?.Specialization}</h3>
+					<p>Experience : {data?.experience_years} years</p>
 
-					<div
-						dangerouslySetInnerHTML={{ __html: data?.results[0]?.IntroText }}
-					/>
+					<div dangerouslySetInnerHTML={{ __html: data?.IntroText }} />
 					<div className={styles.userFeedbacks}>
 						<div>
 							<img src="/icons/love.png" alt="Likes" />
@@ -40,7 +35,7 @@ export default function specificDoctorDetails({ data }) {
 				</div>
 				<img
 					src="https://www.hexahealth.com/images/doctor.png"
-					alt={data?.results[0]?.DoctorName}
+					alt={data?.DoctorName}
 				/>
 			</div>
 		</>
@@ -49,7 +44,7 @@ export default function specificDoctorDetails({ data }) {
 
 export async function getStaticPaths() {
 	const data = await getAllDoctors(0, 9950);
-	const paths = data?.results.map((doc) => {
+	const paths = data?.map((doc) => {
 		return {
 			params: {
 				city: `delhi`,
