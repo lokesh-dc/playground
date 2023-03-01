@@ -11,8 +11,8 @@ module.exports = {
 	async redirects() {
 		return [
 			{
-				source: "/hospitals/null",
-				destination: "/hospitals/avantika-hospital-sector-2-delhi",
+				source: "/mumbai/:path*",
+				destination: "/delhi/:path*",
 				permanent: true,
 			},
 		];

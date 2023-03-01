@@ -1,7 +1,6 @@
 import { getAllDoctors } from "@/Utils/fetching";
 import DoctorsContainer from "@/components/Doctors/DoctorsContainer";
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import Heading from "@/components/Heading";
 
 export default function DoctorDetails() {

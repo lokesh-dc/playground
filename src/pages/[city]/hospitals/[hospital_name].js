@@ -1,6 +1,5 @@
 import Heading from "@/components/Heading";
 import { getAllHospitals } from "@/Utils/fetching";
-import Head from "next/head";
 import styles from "../../../styles/SpecificDoctor.module.css";
 export default function specificHospitalDetails({ data }) {
 	return (

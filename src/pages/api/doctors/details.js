@@ -2,11 +2,8 @@ const connection = require("../../../../config");
 
 export default async function handler(req, res) {
 	if (req.method === "POST") {
-		console.log(typeof req.body);
 		if (typeof req.body !== "string") req.body = JSON.stringify(req.body);
 		const { slug } = JSON.parse(req.body);
-
-		// const { slug } = req.body;
 		connection.query(
 			`call new_dev_db.GetDoctorIdBySlug_v1_BE("${slug}")`,
 			function (err, results, fields) {
